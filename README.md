@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pangasinan Heritage
 
-## Getting Started
+A complete Next.js App Router + TypeScript website. No API keys or backend are needed.
 
-First, run the development server:
+## Run locally
+Requires Node.js 20.9 or newer and npm.
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+Open http://localhost:3000.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Production
+```bash
+npm run build
+npm start
+```
+Open http://localhost:3000. The included Node static server serves the generated `out` folder. You can also deploy `out` to any static host. Next.js `output: 'export'` is configured intentionally: this site does not require a server runtime, database or secret keys.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Included
+- Three destinations with accessible native dialog detail panels.
+- Category filters, responsive mobile menu, persistent local trip shortlist and downloadable plain-text trip notes.
+- Low-data setting persisted locally, automatically honoring navigator.connection.saveData where supported. Photos load only after the preference is read; offscreen photos are lazy-loaded. Turning low-data on stops future image rendering, but cannot reclaim bytes already downloaded.
+- Local WebP assets, system fonts, no autoplay media, no third-party client requests.
+- Semantic landmarks, skip link, visible keyboard focus, dialog Escape handling, image fallbacks, reduced-motion support.
+- Static HTML output; content readable without JavaScript, with enhanced controls requiring JavaScript.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Files
+`app/page.tsx`: editable destination data and interactive page.
+`app/globals.css`: responsive design and theme.
+`app/layout.tsx`: SEO metadata and document language.
+`public/images`: optimized destination photographs.
+`public/photo-credits.txt`: image attribution and reuse terms.
+`server.mjs`: dependency-free local production static server.
 
-## Learn More
+## Verification and limits
+Production compilation and TypeScript checks were run. Browser/device end-to-end testing has not been performed. No software can be guaranteed to work in every environment. Browser local storage can be blocked or cleared; the site falls back to session memory. This is an independent demonstration, not an official provincial portal. Current prices, hours and access are deliberately not asserted; official information links are provided. Consult the photo credits: the Balungao demonstration photograph needs permission or replacement before public commercial use.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploy to Vercel
+Import this folder as a Git repository, select the Next.js framework preset, and use `npm run build`. No environment variables are required. Alternatively run `npx vercel` from this folder.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deploy to Netlify or Cloudflare Pages
+Use build command `npm run build` and publish directory `out`. All photos are bundled in `public/images` and copied into the production output; no remote image configuration is required.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Design
+Rose-pink and berry palette, rounded cards, serif headlines, postcard photography, responsive navigation, and preserved trip planner. All dependencies including lucide-react are declared and locked. Run npm ci before starting the application.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Pink UI update
+A stronger pink palette, floating pill navigation, rounded photo cards, postcard hero, larger touch targets, improved mobile dropdown, and clearer destination actions. Existing category filters, saved trips, low-data mode, and trip-note downloads are preserved.
