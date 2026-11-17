@@ -3,14 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "homepage": "https://devlucenaarleah.github.io/arleahlucena",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "node server.mjs",
-    "typecheck": "tsc --noEmit",
-    "predeploy": "npm run build",
-    "deploy": "npx shx touch out/.nojekyll && gh-pages -d out"
-  },
+ 
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "typecheck": "tsc --noEmit"
+},
   "dependencies": {
     "lucide-react": "^0.468.0",
     "next": "^15.5.12",
