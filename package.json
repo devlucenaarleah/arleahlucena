@@ -9,7 +9,7 @@
     "start": "node server.mjs",
     "typecheck": "tsc --noEmit",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out"
+    "deploy": "npx shx touch out/.nojekyll && gh-pages -d out"
   },
   "dependencies": {
     "lucide-react": "^0.468.0",
@@ -24,6 +24,7 @@
     "@types/react-dom": "^19.1.0",
     "gh-pages": "^6.3.0",
     "postcss": "^8.5.28",
+    "shx": "^0.4.0",
     "tailwindcss": "^4.3.3",
     "typescript": "^5.9.0"
   }
